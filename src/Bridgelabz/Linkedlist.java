@@ -13,8 +13,8 @@ public class Linkedlist {
             this.next = null;
         }
     }
-//Uc3 = Create Linked list by using Append or AddLast method.
-public void AddLast(Object data) {
+ //Uc3 = Created Linked list by using Append or Addlast method.
+ public void Addlast(Object data) {
     Node newNode = new Node(data); // create object of Node and pushing data.
     if (head == null) {
         head = newNode;     // if linkedList is empty then new node will be head.
@@ -27,13 +27,25 @@ public void AddLast(Object data) {
     temp.next = newNode;   // adding node at end of the list.
 }
 
-//Uc5 = Delete the first node of linked list.
-public void deleteFirstElement() {
-    if(head == null){
-        System.out.println("Your Linked List is Empty");
+//Uc6 = Delete the last element of linked list.
+public void deleteLastElement() {
+    if(head == null){                       // checking linked list is empty or not.
+        System.out.println("LinkedList is empty");
         return;
     }
-    head = head.next;     // Deleting first node of Liked List by switching position of Head.
+    if (head.next == null) {               // if linked list have only one element then this condition will execute.
+        head = null;
+        return;
+    }
+
+    Node last = head.next;
+    Node secondLast = head;              // traverse till second last node to delete last node.
+
+    while (last.next != null){
+        last = last.next;
+        secondLast = secondLast.next;
+    }
+    secondLast.next = null;
 }
 
 
@@ -53,10 +65,10 @@ public void print() {
 }
 public static void main(String[] args) {
     LinkedList list = new LinkedList();
-    list.AddLast(85);
-    list.AddLast(24);
-    list.AddLast(16);
-    list.deleteFirstElement();
+    list.Addlast(85);
+    list.Addlast(24);
+    list.Addlast(16);
+    list.deleteLastElement();
     list.print();
 }
 }
