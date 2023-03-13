@@ -2,3 +2,5 @@
 /lib
 lib
 /.vscode
+bin
+/bin
