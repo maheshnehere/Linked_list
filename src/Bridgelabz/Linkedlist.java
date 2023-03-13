@@ -8,13 +8,13 @@ public class Linkedlist {
     class Node {
         Object data;
         Node next;
-        Node(Object data) {
+        Node(Object data) {deleteLast
             this.data = data;
             this.next = null;
         }
     }
- //Uc3 = Created Linked list by using Append or Addlast method.
- public void Addlast(Object data) {
+  //Uc3 = Create Linked list by using Append or AddLast method.
+  public void AddLast(Object data) {
     Node newNode = new Node(data); // create object of Node and pushing data.
     if (head == null) {
         head = newNode;     // if linkedList is empty then new node will be head.
@@ -27,27 +27,14 @@ public class Linkedlist {
     temp.next = newNode;   // adding node at end of the list.
 }
 
-//Uc6 = Delete the last element of linked list.
-public void deleteLastElement() {
-    if(head == null){                       // checking linked list is empty or not.
-        System.out.println("LinkedList is empty");
-        return;
+//Uc7 = Search linked list to find node with value 30
+public void searchLinkedlist(Object data) {
+    Node temp = head;
+    while (temp.data != data) {  // travese till temp.data doent matches the input.
+        temp = temp.next;
     }
-    if (head.next == null) {               // if linked list have only one element then this condition will execute.
-        head = null;
-        return;
-    }
-
-    Node last = head.next;
-    Node secondLast = head;              // traverse till second last node to delete last node.
-
-    while (last.next != null){
-        last = last.next;
-        secondLast = secondLast.next;
-    }
-    secondLast.next = null;
+    System.out.println(temp.data);
 }
-
 
 // Display the methods.
 public void print() {
@@ -65,10 +52,10 @@ public void print() {
 }
 public static void main(String[] args) {
     LinkedList list = new LinkedList();
-    list.Addlast(85);
-    list.Addlast(24);
-    list.Addlast(16);
-    list.deleteLastElement();
+    list.AddLast(85);
+    list.AddLast(24);
+    list.AddLast(16);
+    list.searchLinkedlist(24);
     list.print();
 }
 }
