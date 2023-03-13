@@ -13,9 +13,8 @@ public class Linkedlist {
             this.next = null;
         }
     }
-
-   //Uc3 = Create Linked list by using Append or AddLast method.
-   public void AddLast(Object data) {
+//Uc3 = Create Linked list by using Append or AddLast method.
+public void AddLast(Object data) {
     Node newNode = new Node(data); // create object of Node and pushing data.
     if (head == null) {
         head = newNode;     // if linkedList is empty then new node will be head.
@@ -27,6 +26,18 @@ public class Linkedlist {
     }
     temp.next = newNode;   // adding node at end of the list.
 }
+
+//Uc4 = Insert the elements in between LinkedList.
+public void insertInMiddle(Object place, Object data) { // Insert 30 in between 36 and 70.
+    Node newNode = new Node(data);
+    Node temp = head;
+    while (temp.data != place) {  //traverse till the data after we have to add New Node.
+        temp = temp.next;
+    }
+    newNode.next = temp.next;     //Insert a number in middle of two numbers.
+    temp.next = newNode;
+}
+
 // Display the methods.
 public void print() {
     if (head == null) {
@@ -45,7 +56,7 @@ public static void main(String[] args) {
     LinkedList list = new LinkedList();
     list.AddLast(85);
     list.AddLast(24);
-    list.AddLast(16);
+    list.insertInMiddle(85,16);
     list.print();
 }
 }
